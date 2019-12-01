@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/addons/p5.sound.min.js"></script>
+    <style> body {padding: 0; margin: 0; background-color: rgb(85,172,239);} </style>
+  </head>
+  <body>
+    <video id='video' height='480' width='640' style='display:none;' autoplay></video>
+    <canvas id='canvas' height='480' width='640' style='display:none;'></canvas>
+    <script>
+          var video = document.getElementById('video');
+          var canvas = document.getElementById('canvas');
+          var context = canvas.getContext('2d');
+          if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({ video : true }).then(function(stream){
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+            });
+          }
+
+    </script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
